@@ -1,29 +1,26 @@
 import React from 'react';
-import { getLaunches } from './data/launchesSource';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUpcomingLaunches } from './store/launches/actions';
+import { selectLaunches, selectStatus } from './store/launches/selectors';
+import { MemoMap } from './components/Map';
 import './App.css';
+import { Status } from './store/types';
 
 function App() {
+  const dispatch = useDispatch();
+  const launches = useSelector(selectLaunches);
+  const status = useSelector(selectStatus);
+
   React.useEffect(() => {
-    (async () => {
-      await getLaunches();
-    })();
-  });
+    dispatch(getUpcomingLaunches());
+  }, [dispatch]);
+
+  if (status === Status.Loading) {
+    return <div>Loading...</div>
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/sx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MemoMap launches={launches} />
   );
 }
 

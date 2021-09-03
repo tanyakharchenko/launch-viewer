@@ -1,46 +1,18 @@
-# Getting Started with Create React App
+To start the app run ``yarn start``;
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NOTE: you need to set api key that I've sent to you via email in the src/constants.ts (googleMapsApiKey);
 
-## Available Scripts
+DOCUMENTATION:
+- Technologies was used:
+1. Redux + thunk - This application is not so big and could be written without state managers, but I'd prefer to use one because without redux you need to manage state in the state of components or use context for it and I think that it could be confused 
+2. Google Maps - I haven't worked with maps API before so I chose most popular one 
 
-In the project directory, you can run:
+- Technologies could be used:
+1. Reselect for making redux selector work quirkier (result caching, etc.);
+2. Axious - I used native fetch for my API calls but axios is more flexible 
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- What I want to change/add:
+1. All requirements that I haven't implement (add a filter, add UI marker for errors)
+2. Write Unit tests: I would start from covering my utils and API functionality, then I would move to redux actions and the components 
+3. Add properly typing - in my implementation you will see a lot of any and I want to get rid of them 
+4. Add formatting for data that comes from the API and save in the store only data that is needed for front end. 
